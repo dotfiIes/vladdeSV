@@ -1,0 +1,17 @@
+{
+    "font_size": 10,
+    "spell_check": true,
+    "translate_tabs_to_spaces": true,
+    "indent_to_bracket": true,
+    "draw_minimap_border": true,
+    "highlight_line": true,
+    "trim_trailing_white_space_on_save": true,
+    "ensure_newline_at_eof_on_save": true,
+    "atomic_save": true,
+    "shift_tab_unindent": true,
+    "copy_with_empty_selection": true,
+    "auto_find_in_selection": true,
+    "drag_text": false,
+    //"highlight_modified_tabs": true,
+    "ignored_packages": ["Vintage"] //Delete "Vintage" to enable vim mode
+}
