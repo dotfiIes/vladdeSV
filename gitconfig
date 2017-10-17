@@ -1,0 +1,11 @@
+[user]
+	email = v@vladde.net
+	name = Vladimirs Nordholm
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	cm = commit
+	last = log -1 HEAD
+    adda = add -A
+	unstage = reset HEAD --
