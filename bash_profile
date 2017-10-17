@@ -17,3 +17,5 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # Auto-complete symlinks
 bind 'set mark-symlinked-directories on'
+# Auto-complete case-insensetive
+bind 'set completion-ignore-case on'
