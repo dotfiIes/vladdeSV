@@ -12,8 +12,8 @@ alias ls="ls -G"
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # Load scripts if existing
-[ -f /usr/local/bin/git-completion.bash ] && . /usr/local/bin/git-completion.bash
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+if [ -f /usr/local/bin/git-completion.bash ]; then . /usr/local/bin/git-completion.bash; else echo "> git-completion.bash not found"; fi
+if [ -f /usr/local/etc/profile.d/autojump.sh ]; then . /usr/local/etc/profile.d/autojump.sh; else echo "> autojump.sh not found"; fi
 
 # Auto-complete symlinks
 bind 'set mark-symlinked-directories on'
