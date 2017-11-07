@@ -5,7 +5,9 @@
 	co = checkout
 	br = branch
 	st = status
-	cm = commit
+	cm = commit -m
 	last = log -1 HEAD
     adda = add -A
 	unstage = reset HEAD --
+[core]
+	editor = vim
