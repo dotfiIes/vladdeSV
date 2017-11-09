@@ -1,13 +1,14 @@
 [user]
-	email = v@vladde.net
-	name = Vladimirs Nordholm
+    email = v@vladde.net
+    name = Vladimirs Nordholm
 [alias]
-	co = checkout
-	br = branch
-	st = status
-	cm = commit -m
-	last = log -1 HEAD
+    co = checkout
+    b = branch
+    s = status
+    cm = commit -m
+    last = log -1 HEAD
     adda = add -A
-	unstage = reset HEAD --
+    unstage = reset HEAD --
+    tree = log --graph --oneline --all
 [core]
-	editor = vim
+    editor = vim
