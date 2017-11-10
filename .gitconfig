@@ -3,8 +3,8 @@
     name = Vladimirs Nordholm
 [alias]
     co = checkout
-    b = branch
-    s = status
+    br = branch
+    st = status
     cm = commit -m
     last = log -1 HEAD
     adda = add -A
