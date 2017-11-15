@@ -27,6 +27,10 @@ alias bea=git
 # How I prefer to get the working directory
 alias cwd=pwd
 
+# OS X specific
+alias finder='open -a Finder ./'
+alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
+
 # from that guy Nate
 alias cp='cp -iv'
 alias mv='mv -iv'
@@ -35,7 +39,6 @@ alias ll='ls -FGlAhp'
 alias cd..='cd ../'
 alias ..='cd ../'
 alias ...='cd ../../'
-alias finder='open -a Finder ./'
 alias ~="cd ~"
 alias which='type -all'
 alias path='echo -e ${PATH//:/\\n}'
