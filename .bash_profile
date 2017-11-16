@@ -29,7 +29,7 @@ alias cwd=pwd
 
 # OS X specific
 alias finder='open -a Finder ./'
-alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
+alias adddockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 
 # from that guy Nate
 alias cp='cp -iv'
