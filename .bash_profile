@@ -19,6 +19,7 @@ bind 'set completion-ignore-case on'
 
 # Quick-command to exit
 alias qq=exit
+alias :q=exit
 
 # By coincidence, the word 'pull' (from `git pull`) is very similar to the Swedish word 'pulla', which is used to describe women masturbating.
 # So by aliasing git to my girlfriend's name, I can also have a laugh when I fetch and merge repositories :^)
@@ -67,3 +68,5 @@ extract () {
 }
 
 # I took inspiration from https://frd.mn/ and https://natelandau.com/ :pray:
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

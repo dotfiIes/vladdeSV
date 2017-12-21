@@ -5,10 +5,22 @@
     co = checkout
     br = branch
     st = status
-    cm = commit -m
-    last = log -1 HEAD
+    cm = commit
+    
     adda = add -A
     unstage = reset HEAD --
-    tree = log --graph --oneline --all
+    tree = log --graph --all
+    filehist = log -p -M --follow --stat --
+    diffs = diff --staged
+    git = !git
 [core]
     editor = vim
+[diff]
+    tool = code
+[difftool "code"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
