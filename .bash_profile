@@ -5,12 +5,13 @@ else
     host=''
 fi
 
-# Set the prompt
-export PS1="\[\033[38;5;10m\]\u$host\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;45m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
-
 # Load scripts if existing
 if [ -f /usr/local/bin/git-completion.bash ];   then . /usr/local/bin/git-completion.bash;   else echo "> git-completion.bash not found"; fi
+if [ -f /usr/local/bin/git-prompt.sh ];         then . /usr/local/bin/git-prompt.sh;         else echo "> git-prompt.sh not found"; fi
 if [ -f /usr/local/etc/profile.d/autojump.sh ]; then . /usr/local/etc/profile.d/autojump.sh; else echo "> autojump.sh not found"; fi
+
+# Set the prompt
+export PS1="\[\033[38;5;10m\]\u$host\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[39m\]\$(__git_ps1 \" \[\033[39m\]git:(\[\033[38;5;198m\]%s\[\033[39m\])\") 🍍  \[$(tput sgr0)\]"
 
 # Auto-complete symlinks
 bind 'set mark-symlinked-directories on'
@@ -28,6 +29,8 @@ alias bea=git
 # How I prefer to get the working directory
 alias cwd=pwd
 
+alias fixaudio='sudo killall coreaudiod'
+
 # OS X specific
 alias finder='open -a Finder ./'
 alias adddockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
@@ -43,6 +46,9 @@ alias ...='cd ../../'
 alias ~="cd ~"
 alias which='type -all'
 alias path='echo -e ${PATH//:/\\n}'
+alias qfind="find . -name "
+alias ip='curl ifconfig.co'
+alias local-ip='ipconfig getifaddr en0'
 mcd () { mkdir -p "$1" && cd "$1"; }
 trash () { command mv "$@" ~/.Trash ; }
 zipf () { zip -r "$1".zip "$1" ; }
@@ -70,3 +76,6 @@ extract () {
 # I took inspiration from https://frd.mn/ and https://natelandau.com/ :pray:
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+eval $(thefuck --alias)
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
