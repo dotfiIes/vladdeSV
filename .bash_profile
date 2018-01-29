@@ -6,8 +6,8 @@ else
 fi
 
 # Load scripts if existing
-if [ -f /usr/local/bin/git-completion.bash ];   then . /usr/local/bin/git-completion.bash;   else echo "> git-completion.bash not found"; fi
-if [ -f /usr/local/bin/git-prompt.sh ];         then . /usr/local/bin/git-prompt.sh;         else echo "> git-prompt.sh not found"; fi
+if [ -f /usr/local/bin/git-completion.bash   ]; then . /usr/local/bin/git-completion.bash;   else echo "> git-completion.bash not found"; fi
+if [ -f /usr/local/bin/git-prompt.sh         ]; then . /usr/local/bin/git-prompt.sh;         else echo "> git-prompt.sh not found"; fi
 if [ -f /usr/local/etc/profile.d/autojump.sh ]; then . /usr/local/etc/profile.d/autojump.sh; else echo "> autojump.sh not found"; fi
 
 # Set the prompt
@@ -29,11 +29,10 @@ alias bea=git
 # How I prefer to get the working directory
 alias cwd=pwd
 
-alias fixaudio='sudo killall coreaudiod'
-
 # OS X specific
 alias finder='open -a Finder ./'
-alias adddockspace="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
+alias kill-audio='sudo killall coreaudiod'
+alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 
 # from that guy Nate
 alias cp='cp -iv'
@@ -77,5 +76,3 @@ extract () {
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 eval $(thefuck --alias)
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
