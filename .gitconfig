@@ -1,6 +1,9 @@
+# me
 [user]
     email = v@vladde.net
     name = Vladimirs Nordholm
+
+# extra
 [alias]
     co = checkout
     br = branch
@@ -15,6 +18,9 @@
     git = !git
 [core]
     editor = vim
+    autocrlf = input
+
+# tools
 [diff]
     tool = code
 [difftool "code"]
@@ -24,6 +30,8 @@
     process = git-lfs filter-process
     required = true
     clean = git-lfs clean -- %f
+
+# colors
 [color]
     branch = auto
     diff = auto
@@ -38,6 +46,6 @@
     old = red bold
     new = green bold
 [color "status"]
-    added = yellow
-    changed = green
+    added = green
+    changed = yellow
     untracked = cyan
