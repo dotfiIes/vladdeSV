@@ -17,7 +17,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set number
-set numberwidth=3
+set numberwidth=4
+set nowrap
 
 map q <Nop>
 
