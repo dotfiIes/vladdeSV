@@ -20,6 +20,10 @@ set number
 set numberwidth=4
 set nowrap
 
+" WSL support
+set term=screen-256color
+set t_ut=
+
 map q <Nop>
 
 colorscheme monokai
