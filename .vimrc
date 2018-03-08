@@ -20,6 +20,14 @@ set number
 set numberwidth=4
 set nowrap
 
+" ignore just a q press. h*ck i dislike this command...
 map q <Nop>
+" switch panes
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" show suggestions
+imap <Tab> <C-P>
 
 colorscheme monokai
