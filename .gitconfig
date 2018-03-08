@@ -15,7 +15,6 @@
     tree = log --graph --all
     filehist = log -p -M --follow --stat --
     diffs = diff --staged
-    git = !git
 [core]
     editor = vim
     autocrlf = input
