@@ -1,3 +1,6 @@
+# Load scripts which should not be available online :^)
+if [ -f ~/.bash_extra.bash ]; then source ~/.bash_extra.bash; fi
+
 # Load scripts if existing
 if [ -f /usr/local/bin/git-completion.bash ]; then source /usr/local/bin/git-completion.bash;   else echo "!> 'git-completion.bash' not found ( https://github.com/git/git/blob/master/contrib/completion/git-completion.bash )"; fi
 if [ -f /usr/local/bin/git-prompt.sh       ]; then source /usr/local/bin/git-prompt.sh;         else echo "!> 'git-prompt.sh' not found ( https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh )"; fi
@@ -14,6 +17,7 @@ export PS1="\[\033[38;5;10m\]\u$host\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[
 bind 'set mark-symlinked-directories on'    # Auto-complete symlinks
 bind 'set completion-ignore-case on'        # Auto-complete case-insensetive
 
+alias nano=vim                              # In this house we use Vim
 alias :q=exit                               # Quick-command to exit
 alias bea=git                               # By coincidence, the word 'pull' (from `git pull`) is very similar to the Swedish word 'pulla', which is used to describe women masturbating. So by aliasing git to my girlfriend's name, I can also have a laugh when I fetch and merge repositories :^)
 alias cwd=pwd                               # How I prefer to get the working directory
@@ -35,7 +39,7 @@ alias path='echo -e ${PATH//:/\\n}'         # List all paths in $PATH
 alias qfind="find . -name "                 # Search for filename in current directory
 alias ip='curl ifconfig.co'                 # Get the public IP of the computer
 alias local-ip='ipconfig getifaddr en0'     # Get the local IP of the computer
-alias finder='open -a Finder ./i'           # Open Finder in current directory
+alias finder='open -a Finder .'             # Open Finder in current directory
 alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock" # Add a blank-space to the dock.
 
 title() { echo -ne "\033]0;$1\007"; }       # Set the title for the terminal
