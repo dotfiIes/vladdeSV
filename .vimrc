@@ -19,8 +19,13 @@ set expandtab
 set number
 set numberwidth=4
 set nowrap
+set autoread
+set re=1
+set timeout timeoutlen=1000 ttimeoutlen=100
+set history=9001
+set encoding=utf-8
 
-" WSL support
+" Windoes Subsysten for Linux (WSL) support
 set term=screen-256color
 set t_ut=
 
@@ -31,7 +36,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" show suggestions
+" tab to autocomplete
 imap <Tab> <C-P>
 
 colorscheme monokai
