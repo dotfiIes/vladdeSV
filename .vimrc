@@ -36,8 +36,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" tab to autocomplete
-imap <Tab> <C-P>
+
+" ctrl+space (on mac) to autocomplete
+inoremap <C-@> <C-P>
+
 "super-paste thing
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
