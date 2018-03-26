@@ -38,7 +38,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " ctrl+space (on mac) to autocomplete
-inoremap <C-@> <C-P>
+inoremap <C-@> <C-N>
 
 "super-paste thing
 let &t_SI .= "\<Esc>[?2004h"
