@@ -5,11 +5,10 @@ for file in .*; do
     if [ -f $file ]; then
         echo "> linking $file";
         if [ -f "${HOME}/$file" ]; then
-            echo "!> conflicting $file found. renaming old file"
-            mv "${HOME}/$file" "${HOME}/$file.old"
+            echo "!> conflicting $file found. ignoring..."
+        else
+            ln -s "$(pwd)/$file" "${HOME}/$file"
         fi
-        
-        ln -s "$(pwd)/$file" "${HOME}/$file"
     fi
 done
 
