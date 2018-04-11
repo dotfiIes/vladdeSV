@@ -42,6 +42,7 @@ alias local-ip='ipconfig getifaddr en0'     # Get the local IP of the computer
 alias finder='open -a Finder .'             # Open Finder in current directory
 alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock" # Add a blank-space to the dock.
 
+ssh-key-match() { [[ $(ssh-keygen -y -e -f $1) = $(ssh-keygen -y -e -f $2) ]] && echo "matching" || echo "not matching"; } # Check if two SSH keys are matching (aka private and public key pairs)
 title() { echo -ne "\033]0;$1\007"; }       # Set the title for the terminal
 todo() {                                    # Say a nice quote :)
     if [[ $(type -t say) ]]; then
