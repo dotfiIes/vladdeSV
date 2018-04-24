@@ -25,7 +25,6 @@ alias mc='LANG=en_EN.UTF-8 mc'              # Open Midnight Commander in english
 alias cp='cp -iv'                           # Preferred implementation
 alias mv='mv -iv'                           # -''-
 alias mkdir='mkdir -pv'                     # -''-
-alias ll='ls -FGlAhp'                       # Preferred listing for OS X
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias cd..='cd ../'                         # cd alternation
 alias ..='cd ../'                           # -''-
@@ -41,6 +40,9 @@ alias ip='curl ifconfig.co'                 # Get the public IP of the computer
 alias local-ip='ipconfig getifaddr en0'     # Get the local IP of the computer
 alias finder='open -a Finder .'             # Open Finder in current directory
 alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock" # Add a blank-space to the dock.
+alias ll='exa -lgh'                         # exa is better than ls. Fite me.
+alias tree='exa --tree'                     # exa's tree output is much easier on the eyes.
+alias ack='echo "use ripgrep \`rg\`, alternatively use \\ack"'
 
 ssh-key-match() { [[ $(ssh-keygen -y -e -f $1) = $(ssh-keygen -y -e -f $2) ]] && echo "matching" || echo "not matching"; } # Check if two SSH keys are matching (aka private and public key pairs)
 title() { echo -ne "\033]0;$1\007"; }       # Set the title for the terminal
