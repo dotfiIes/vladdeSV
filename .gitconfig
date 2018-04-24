@@ -17,7 +17,7 @@
     diffs = diff --staged
 [core]
     editor = vim
-    autocrlf = input
+    autocrlf = false
 
 # tools
 [diff]
