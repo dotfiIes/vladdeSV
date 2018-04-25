@@ -43,7 +43,15 @@ alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '
 alias ll='exa -lgh'                         # exa is better than ls. Fite me.
 alias tree='exa --tree'                     # exa's tree output is much easier on the eyes.
 alias ack='echo "use ripgrep \`rg\`, alternatively use \\ack"'
+alias ssh-nokey='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
 
+cdu() {                                     # Short for "change directory upwards"
+    if [ "$1" -eq "$1" ] 2>/dev/null; then
+        cd $(printf '../%.0s' $(seq 1 $1))
+    else
+        echo "$1 is not a natural number (positive whole number) greater than 0"
+    fi
+}
 ssh-key-match() { [[ $(ssh-keygen -y -e -f $1) = $(ssh-keygen -y -e -f $2) ]] && echo "matching" || echo "not matching"; } # Check if two SSH keys are matching (aka private and public key pairs)
 title() { echo -ne "\033]0;$1\007"; }       # Set the title for the terminal
 todo() {                                    # Say a nice quote :)
