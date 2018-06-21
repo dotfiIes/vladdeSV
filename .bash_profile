@@ -6,6 +6,7 @@ if [ -f /usr/local/bin/git-completion.bash ]; then source /usr/local/bin/git-com
 if [ -f /usr/local/bin/git-prompt.sh       ]; then source /usr/local/bin/git-prompt.sh;         else echo "!> 'git-prompt.sh' not found ( https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh )"; fi
 if [ $(type -t autojump)                   ]; then source /usr/local/etc/profile.d/autojump.sh; else echo "!> 'autojump' not installed ( https://github.com/wting/autojump )"; fi
 if [ $(type -t thefuck)                    ]; then eval $(thefuck --alias);                     else echo "!> 'thefuck' not installed ( https://github.com/nvbn/thefuck )"; fi
+if [ -z $(type -t rg)                      ]; then                                                   echo "!> 'ripgrep' not installed ( https://github.com/BurntSushi/ripgrep )"; fi
 
 # If SSH connection, display hostname
 if [ "$SSH_CONNECTION" ]; then host=' \[\033[38;5;11m\]\h'; else host=''; fi
@@ -17,7 +18,8 @@ export PS1="\[\033[38;5;10m\]\u$host\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[
 bind 'set mark-symlinked-directories on'    # Auto-complete symlinks
 bind 'set completion-ignore-case on'        # Auto-complete case-insensetive
 
-alias nano=vim                              # In this house we use Vim
+alias vim=nvim                              # In this house we no longer use vim......
+alias nano=nvim                             # -''-
 alias :q=exit                               # Quick-command to exit
 alias bea=git                               # By coincidence, the word 'pull' (from `git pull`) is very similar to the Swedish word 'pulla', which is used to describe women masturbating. So by aliasing git to my girlfriend's name, I can also have a laugh when I fetch and merge repositories :^)
 alias cwd=pwd                               # How I prefer to get the working directory
@@ -87,4 +89,7 @@ extract () {                                 # Extract a file from a compressed 
 }
 
 # I took inspiration (and sometimes plainly copied) from https://frd.mn/ and https://natelandau.com/ :pray:
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
