@@ -18,6 +18,7 @@ export PS1="\[\033[38;5;10m\]\u$host\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[
 bind 'set mark-symlinked-directories on'    # Auto-complete symlinks
 bind 'set completion-ignore-case on'        # Auto-complete case-insensetive
 
+alias sudo='sudo '                          # Command following sudo will check for aliases, eg. 'sudo vim' → 'sudo nvim' per definition below
 alias vim=nvim                              # In this house we no longer use vim......
 alias nano=nvim                             # -''-
 alias :q=exit                               # Quick-command to exit
