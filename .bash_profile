@@ -8,12 +8,9 @@ if [ $(type -t autojump)                   ]; then source /usr/local/etc/profile
 if [ $(type -t thefuck)                    ]; then eval $(thefuck --alias);                     else echo "!> 'thefuck' not installed ( https://github.com/nvbn/thefuck )"; fi
 if [ -z $(type -t rg)                      ]; then                                                   echo "!> 'ripgrep' not installed ( https://github.com/BurntSushi/ripgrep )"; fi
 
-# If SSH connection, display hostname
-if [ "$SSH_CONNECTION" ]; then host=' \[\033[38;5;11m\]\h'; else host=''; fi
-
 # Set the prompt
 #emojis=("🍍" "🍌")
-export PS1="\[\033[38;5;10m\]\u$host\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[39m\]\$(__git_ps1 \" \[\033[39m\]git:(\[\033[38;5;198m\]%s\[\033[39m\])\")\[\033[0m\] \$ "
+export PS1="\[\033[38;5;10m\]\u \[\033[38;5;11m\]\h\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[39m\]\$(__git_ps1 \" \[\033[39m\]git:(\[\033[38;5;198m\]%s\[\033[39m\])\")\[\033[0m\] \$ "
 
 bind 'set mark-symlinked-directories on'    # Auto-complete symlinks
 bind 'set completion-ignore-case on'        # Auto-complete case-insensetive
