@@ -10,7 +10,23 @@ if [ -z $(type -t rg)                      ]; then                              
 
 # Set the prompt
 #emojis=("🍍" "🍌")
-export PS1="\[\033[38;5;10m\]\u \[\033[38;5;11m\]\h\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[39m\]\$(__git_ps1 \" \[\033[39m\]git:(\[\033[38;5;198m\]%s\[\033[39m\])\")\[\033[0m\] \$ "
+
+host_color='[38;5;11m'
+case $(uname -n) in
+macaholic.*)
+  host_color='[33;11m'
+  ;;
+miniholic.*)
+  host_color='[33;1;11m'
+  ;;
+neobabe.*)
+  host_color='[38;5;11m'
+  ;;
+babe.*)
+  host_color='[34;5;11m'
+  ;;
+esac
+export PS1="\[\033[38;5;10m\]\u \[\033$host_color\]\h\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[39m\]\$(__git_ps1 \" \[\033[39m\]git:(\[\033[38;5;198m\]%s\[\033[39m\])\")\[\033[0m\] \$ "
 
 bind 'set mark-symlinked-directories on'    # Auto-complete symlinks
 bind 'set completion-ignore-case on'        # Auto-complete case-insensetive
