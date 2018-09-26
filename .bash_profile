@@ -20,7 +20,7 @@ miniholic*)
   host_color='[33;1;11m'
   ;;
 neobabe*)
-  host_color='[31;5;11m'
+  host_color='[91;5;11m'
   ;;
 babe*)
   host_color='[34;5;11m'
