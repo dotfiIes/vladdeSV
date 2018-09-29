@@ -11,18 +11,18 @@ if [ -z $(type -t rg)                      ]; then                              
 # Set the prompt
 #emojis=("🍍" "🍌")
 
-host_color='[38;5;11m'
+host_color='[91;5;11m'
 case $(uname -n) in
-macaholic.*)
+macaholic*)
   host_color='[33;11m'
   ;;
-miniholic.*)
+miniholic*)
   host_color='[33;1;11m'
   ;;
-neobabe.*)
-  host_color='[38;5;11m'
+neobabe*)
+  host_color='[91;5;11m'
   ;;
-babe.*)
+babe*)
   host_color='[34;5;11m'
   ;;
 esac
