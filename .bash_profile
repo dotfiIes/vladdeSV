@@ -57,7 +57,7 @@ alias local-ip='ipconfig getifaddr en0'     # Get the local IP of the computer
 alias finder='open -a Finder .'             # Open Finder in current directory
 alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock" # Add a blank-space to the dock.
 alias ll='exa -lgh -s=type'                 # exa is better than ls. Fite me.
-alias tree='exa --tree'                     # exa's tree output is much easier on the eyes.
+alias tree='exa --tree -s=type'             # exa's tree output is much easier on the eyes.
 alias ack='echo "use ripgrep \`rg\`, alternatively use \\ack"'
 alias ssh-nokey='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
 
