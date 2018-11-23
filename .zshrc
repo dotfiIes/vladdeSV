@@ -1,40 +1,3 @@
-# Load scripts which should not be available online :^)
-if [ -f ~/.extra_commands.sh ]; then source ~/.extra_commands.sh; fi
-
-# bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
-# Load scripts if existing
-if [ -f /usr/local/bin/git-completion.bash ]; then source /usr/local/bin/git-completion.bash;   else echo "!> 'git-completion.bash' not found ( https://github.com/git/git/blob/master/contrib/completion/git-completion.bash )"; fi
-if [ -f /usr/local/bin/git-prompt.sh       ]; then source /usr/local/bin/git-prompt.sh;         else echo "!> 'git-prompt.sh' not found ( https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh )"; fi
-if [ $(type -t autojump)                   ]; then source /usr/local/etc/profile.d/autojump.sh; else echo "!> 'autojump' not installed ( https://github.com/wting/autojump )"; fi
-if [ $(type -t thefuck)                    ]; then eval $(thefuck --alias);                     else echo "!> 'thefuck' not installed ( https://github.com/nvbn/thefuck )"; fi
-if [ -z $(type -t rg)                      ]; then                                                   echo "!> 'ripgrep' not installed ( https://github.com/BurntSushi/ripgrep )"; fi
-
-# Set the prompt
-#emojis=("🍍" "🍌")
-
-host_color='[91;5;11m'
-case $(uname -n) in
-macaholic*)
-  host_color='[33;11m'
-  ;;
-miniholic*)
-  host_color='[33;1;11m'
-  ;;
-neobabe*)
-  host_color='[91;5;11m'
-  ;;
-babe*)
-  host_color='[34;5;11m'
-  ;;
-esac
-export PS1="\[\033[38;5;10m\]\u \[\033$host_color\]\h\[\033[38;5;15m\] \[\033[38;5;45m\]\w\[\033[39m\]\$(__git_ps1 \" \[\033[39m\]git:(\[\033[38;5;198m\]%s\[\033[39m\])\")\[\033[0m\] \$ "
-
-bind 'set mark-symlinked-directories on'    # Auto-complete symlinks
-bind 'set completion-ignore-case on'        # Auto-complete case-insensetive
 
 alias sudo='sudo '                          # Command following sudo will check for aliases, eg. 'sudo vim' → 'sudo nvim' per definition below
 alias vim=nvim                              # In this house we no longer use vim......
@@ -63,8 +26,10 @@ alias finder='open -a Finder .'             # Open Finder in current directory
 alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock" # Add a blank-space to the dock.
 alias ll='exa -lgh -s=type'                 # exa is better than ls. Fite me.
 alias tree='exa --tree -s=type'             # exa's tree output is much easier on the eyes.
-alias ack='echo "use ripgrep \`rg\`, alternatively use \\ack"'
-alias ssh-nokey='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+alias ack='echo "use ripgrep \`rg\`, alternatively use \\ack"' # notifier to use ripgrep instead
+alias ssh-nokey='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no' # ssh without providing ssh key
+alias hos='sudo nvim /etc/hosts'             # short for editing hosts file
+alias imagesize='sips -g pixelHeight -g pixelWidth $1' # get image size
 
 cdu() {                                     # Short for "change directory upwards"
     if [ "$1" -eq "$1" ] 2>/dev/null; then
@@ -107,8 +72,80 @@ extract () {                                 # Extract a file from a compressed 
      fi
 }
 
-# I took inspiration (and sometimes plainly copied) from https://frd.mn/ and https://natelandau.com/ :pray:
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/vladde/.oh-my-zsh"
 
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+#DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  autojump
+  git
+  cp
+  xcode
+  vscode
+  vagrant
+  thefuck
+  sudo
+  sublime
+  ssh-agent
+  screen
+  react-native
+  python
+  node
+  man
+  iterm2
+  git-extras
+  encode64
+  brew
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+export EDITOR='nvim'
+
+# ssh
+ export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set colors for apropriate device
+host_color='%{$fg[red]%}'
+case $(uname -n) in
+macaholic*)
+  host_color='%{$fg[yellow]%}'
+  ;;
+miniholic*)
+  host_color='%{$fg[yellow]%}'
+  ;;
+neobabe*)
+  host_color='%{$fg[magenta]%}'
+  ;;
+babe*) # no longer with us. rip.
+  host_color='%{$fg[blue]%}'
+  ;;
+esac
+
+source /usr/local/bin/git-prompt.sh
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+PROMPT='%{$fg[green]%}%n %{$fg[yellow]%}%m %{$fg[blue]%}%~%{$reset_color%}$(__git_ps1 " git:(%s)") $ '
+
+alias gc='git commit -m'
+alias gs='git status'
+alias gt='git log --tree'
+
+export PATH="/usr/local/opt/ldc/bin/:$PATH"
+
+if [ -f ~/.extra_commands.sh ]; then source ~/.extra_commands.sh; fi

@@ -13,6 +13,4 @@ for file in .*; do
 done
 
 echo
-echo "> updating .bash_profile"
-source ~/.bash_profile
 echo "> done"

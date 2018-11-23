@@ -17,9 +17,24 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " ignore just a q press. h*ck i dislike this command...
-map q <Nop>
+"map q <Nop>
 
 " ctrl+space (on mac) to autocomplete
 inoremap <C-@> <C-N>
 
 colorscheme garybernhardt
+
+set laststatus=2
+set statusline=
+set statusline+=\ %l
+set statusline+=\ %*
+set statusline+=\ ‹‹
+set statusline+=\ %f\ %*
+set statusline+=\ ››
+set statusline+=\ %m
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=\ ‹‹
+set statusline+=\ ::
+set statusline+=\ %n
+set statusline+=\ ››\ %*
