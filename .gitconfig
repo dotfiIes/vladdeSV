@@ -2,6 +2,7 @@
 [user]
     email = v@vladde.net
     name = Vladimirs Nordholm
+	signingkey = D08082EA7A090A34
 
 # extra
 [alias]
@@ -16,7 +17,7 @@
     filehist = log -p -M --follow --stat --
     diffs = diff --staged
 [core]
-    editor = vim
+    editor = nvim
     autocrlf = false
 
 # tools
