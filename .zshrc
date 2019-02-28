@@ -104,7 +104,9 @@ esac
 source /usr/local/bin/git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_SHOWDIRTYSTATE=1
-PROMPT='%{$fg[green]%}%n %{$fg[yellow]%}%m %{$fg[blue]%}%~%{$reset_color%}$(__git_ps1 " git:(%s)") $ '
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}git:(%{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%})"
+PROMPT='%{$fg[green]%}%n %{$fg[yellow]%}%m %{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) $ '
 
 export PATH="/usr/local/opt/ldc/bin/:$PATH"
 export GPG_TTY=$(tty)
