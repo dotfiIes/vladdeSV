@@ -25,7 +25,7 @@ alias which='type -all'                     # Find location of executable
 alias path='echo -e ${PATH//:/\\n}'         # List all paths in $PATH
 alias qfind="find . -name "                 # Search for filename in current directory
 alias ip='curl ifconfig.co'                 # Get the public IP of the computer
-alias local-ip='ipconfig getifaddr en0'     # Get the local IP of the computer
+alias ip-local='ipconfig getifaddr en0'     # Get the local IP of the computer
 alias finder='open -a Finder .'             # Open Finder in current directory
 alias add-dock-space="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock" # Add a blank-space to the dock.
 alias ll='exa -lgha -s=extension'           # exa is better than ls. Fite me.
@@ -82,7 +82,9 @@ extract () {                                 # Extract a file from a compressed 
          echo "'$1' is not a valid file"
      fi
 }
-
+create-empty-file-size() {
+  dd if=/dev/zero of=dummy count=1024 bs=$1
+}
 
 # Set colors for apropriate device
 host_color='%{$fg[red]%}'
@@ -104,7 +106,7 @@ esac
 source /usr/local/bin/git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_SHOWDIRTYSTATE=1
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}git:(%{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}git:(%{\e[38;5;198m%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%})"
 PROMPT='%{$fg[green]%}%n %{$fg[yellow]%}%m %{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) $ '
 
