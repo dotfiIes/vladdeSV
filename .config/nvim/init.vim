@@ -38,3 +38,5 @@ set statusline+=\ ‹‹
 set statusline+=\ ::
 set statusline+=\ %n
 set statusline+=\ ››\ %*
+
+au BufRead,BufNewFile *.fish set filetype=fish
